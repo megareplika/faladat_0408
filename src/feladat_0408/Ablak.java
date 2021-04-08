@@ -30,14 +30,14 @@ public class Ablak extends javax.swing.JFrame {
 
         HelyesseBT = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        textTip = new javax.swing.JTextField();
+        lbFeladat = new javax.swing.JLabel();
+        txtTip = new javax.swing.JTextField();
         lbProbalkozas = new javax.swing.JLabel();
         dbKerdes = new javax.swing.JLabel();
         btSzamol = new javax.swing.JButton();
         btUjFeladat = new javax.swing.JButton();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
+        rbHejes = new javax.swing.JRadioButton();
+        rbRossz = new javax.swing.JRadioButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -51,7 +51,7 @@ public class Ablak extends javax.swing.JFrame {
 
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
-        jLabel1.setText("A feladat");
+        lbFeladat.setText("A feladat");
 
         lbProbalkozas.setText("Eddig próbálkozott: 0");
 
@@ -59,8 +59,18 @@ public class Ablak extends javax.swing.JFrame {
         dbKerdes.setText("Kérdések száma: 0");
 
         btSzamol.setText("Számol");
+        btSzamol.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btSzamolActionPerformed(evt);
+            }
+        });
 
         btUjFeladat.setText("Új Feladat");
+        btUjFeladat.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btUjFeladatActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -80,9 +90,9 @@ public class Ablak extends javax.swing.JFrame {
                             .addComponent(btUjFeladat, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel1Layout.createSequentialGroup()
                             .addGap(39, 39, 39)
-                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lbFeladat, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(53, 53, 53)
-                            .addComponent(textTip, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(txtTip, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(121, 121, 121)
                         .addComponent(dbKerdes, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -95,8 +105,8 @@ public class Ablak extends javax.swing.JFrame {
                 .addComponent(dbKerdes, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(textTip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lbFeladat, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtTip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSzamol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -106,13 +116,13 @@ public class Ablak extends javax.swing.JFrame {
                 .addGap(18, 18, 18))
         );
 
-        HelyesseBT.add(jRadioButton1);
-        jRadioButton1.setText("Helyes megoldás");
-        jRadioButton1.setEnabled(false);
+        HelyesseBT.add(rbHejes);
+        rbHejes.setText("Helyes megoldás");
+        rbHejes.setEnabled(false);
 
-        HelyesseBT.add(jRadioButton2);
-        jRadioButton2.setText("Rossz megoldás");
-        jRadioButton2.setEnabled(false);
+        HelyesseBT.add(rbRossz);
+        rbRossz.setText("Rossz megoldás");
+        rbRossz.setEnabled(false);
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
@@ -134,6 +144,11 @@ public class Ablak extends javax.swing.JFrame {
         jMenu1.add(jMenuItem3);
 
         jMenuItem4.setText("Osztás");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem4);
 
         jMenuBar1.add(jMenu1);
@@ -153,9 +168,9 @@ public class Ablak extends javax.swing.JFrame {
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(47, 47, 47)
-                        .addComponent(jRadioButton1)
+                        .addComponent(rbHejes)
                         .addGap(88, 88, 88)
-                        .addComponent(jRadioButton2)))
+                        .addComponent(rbRossz)))
                 .addContainerGap(25, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -167,13 +182,36 @@ public class Ablak extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2))
+                    .addComponent(rbHejes)
+                    .addComponent(rbRossz))
                 .addGap(45, 45, 45))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        lbFeladat.setText("10/2=");
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void btSzamolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSzamolActionPerformed
+        int tipp = 0;
+        if (txtTip.getText().length() > 0) {
+            tipp = Integer.parseInt(txtTip.getText());
+        }
+        switch (tipp) {
+            case 5:
+                rbHejes.setSelected(true);
+                break;
+            default:
+                rbRossz.setSelected(true);
+        }
+    }//GEN-LAST:event_btSzamolActionPerformed
+
+    private void btUjFeladatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btUjFeladatActionPerformed
+        HelyesseBT.clearSelection();
+        txtTip.setText("");
+    }//GEN-LAST:event_btUjFeladatActionPerformed
 
     /**
      * @param args the command line arguments
@@ -215,7 +253,6 @@ public class Ablak extends javax.swing.JFrame {
     private javax.swing.JButton btSzamol;
     private javax.swing.JButton btUjFeladat;
     private javax.swing.JLabel dbKerdes;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
@@ -223,11 +260,12 @@ public class Ablak extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private javax.swing.JLabel lbFeladat;
     private javax.swing.JLabel lbProbalkozas;
-    private javax.swing.JTextField textTip;
+    private javax.swing.JRadioButton rbHejes;
+    private javax.swing.JRadioButton rbRossz;
+    private javax.swing.JTextField txtTip;
     // End of variables declaration//GEN-END:variables
 }
