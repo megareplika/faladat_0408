@@ -19,6 +19,7 @@ public class Ablak extends javax.swing.JFrame {
     public Ablak() {
         initComponents();
         probadb = 0;
+        lbProbalkozas.setText("Eddig próbálkozott: " + probadb);
         this.setLocationRelativeTo(this);
     }
 
@@ -58,8 +59,6 @@ public class Ablak extends javax.swing.JFrame {
         pnTerulet.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lbFeladat.setText("A feladat");
-
-        lbProbalkozas.setText("Eddig próbálkozott: 0");
 
         dbKerdes.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         dbKerdes.setText("Kérdések száma: 0");
@@ -191,11 +190,11 @@ public class Ablak extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(pnStat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(43, 43, 43)
+                        .addGap(45, 45, 45)
                         .addComponent(rbHejes)
                         .addGap(77, 77, 77)
                         .addComponent(rbRossz)
-                        .addGap(61, 61, 61)
+                        .addGap(48, 48, 48)
                         .addComponent(lbUzenet, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -204,20 +203,18 @@ public class Ablak extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(pnTerulet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pnStat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(lbUzenet, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(28, 28, 28)
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(rbHejes)
-                            .addComponent(rbRossz))))
-                .addGap(26, 26, 26))
+                            .addComponent(rbRossz))
+                        .addGap(54, 54, 54))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pnTerulet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(lbUzenet, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
 
         pack();
@@ -229,35 +226,35 @@ public class Ablak extends javax.swing.JFrame {
 
     private void UjOsztasFeladat() {
         boolean jo = false;
-        int oszto, hanyados;
+        int oszto, osztando, hanyados;
         do {
             oszto = szamgeneral();
-            hanyados = szamgeneral();
-            jo = oszto > 0 && hanyados > oszto;
+            osztando = szamgeneral();
+            jo = oszto > 0 && osztando > oszto && osztando % oszto == 0;
         } while (!jo);
-        helyesEredmeny = (int) hanyados / oszto;
-        lbFeladat.setText(hanyados + "/" + oszto + "=");
+        helyesEredmeny = (int) osztando / oszto;
+        lbFeladat.setText(osztando + " / " + oszto + " =");
     }
 
     private void UjOszeadas() {
         int szam1 = szamgeneral();
         int szam2 = szamgeneral();
         helyesEredmeny = szam1 + szam2;
-        lbFeladat.setText(szam1 + "+" + szam2 + "=");
+        lbFeladat.setText(szam1 + " + " + szam2 + " =");
     }
 
     private void UjKivonas() {
         int szam1 = szamgeneral();
         int szam2 = szamgeneral();
         helyesEredmeny = szam1 + szam2;
-        lbFeladat.setText(szam1 + "+" + szam2 + "=");
+        lbFeladat.setText(szam1 + " + " + szam2 + " =");
     }
 
     private void UjSzorzas() {
         int szam1 = szamgeneral();
         int szam2 = szamgeneral();
         helyesEredmeny = szam1 * szam2;
-        lbFeladat.setText(szam1 + "*" + szam2 + "=");
+        lbFeladat.setText(szam1 + " * " + szam2 + " =");
     }
 
     private void Proba() {
@@ -277,7 +274,6 @@ public class Ablak extends javax.swing.JFrame {
             }
             if ((int) tipp == helyesEredmeny) {
                 rbHejes.setSelected(true);
-
             } else {
                 rbRossz.setSelected(true);
                 Proba();
@@ -293,6 +289,12 @@ public class Ablak extends javax.swing.JFrame {
         lbUzenet.setText("");
         if (lbFeladat.getText().contains("/")) {
             UjOsztasFeladat();
+        } else if (lbFeladat.getText().contains("+")) {
+            UjOszeadas();
+        } else if (lbFeladat.getText().contains("-")) {
+            UjKivonas();
+        } else if (lbFeladat.getText().contains("*")) {
+            UjSzorzas();
         }
     }//GEN-LAST:event_btUjFeladatActionPerformed
 
