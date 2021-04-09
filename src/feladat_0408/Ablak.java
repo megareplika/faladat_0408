@@ -11,11 +11,14 @@ package feladat_0408;
  */
 public class Ablak extends javax.swing.JFrame {
 
+    private int helyesEredmeny, probadb;
+
     /**
      * Creates new form Ablak
      */
     public Ablak() {
         initComponents();
+        probadb = 0;
         this.setLocationRelativeTo(this);
     }
 
@@ -29,7 +32,7 @@ public class Ablak extends javax.swing.JFrame {
     private void initComponents() {
 
         HelyesseBT = new javax.swing.ButtonGroup();
-        jPanel1 = new javax.swing.JPanel();
+        pnTerulet = new javax.swing.JPanel();
         lbFeladat = new javax.swing.JLabel();
         txtTip = new javax.swing.JTextField();
         lbProbalkozas = new javax.swing.JLabel();
@@ -38,18 +41,21 @@ public class Ablak extends javax.swing.JFrame {
         btUjFeladat = new javax.swing.JButton();
         rbHejes = new javax.swing.JRadioButton();
         rbRossz = new javax.swing.JRadioButton();
+        lbUzenet = new javax.swing.JLabel();
+        pnStat = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
-        jMenuBar1 = new javax.swing.JMenuBar();
-        jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
-        jMenuItem2 = new javax.swing.JMenuItem();
-        jMenuItem3 = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
+        statTextArea = new javax.swing.JTextArea();
+        meBar = new javax.swing.JMenuBar();
+        meMuvelet = new javax.swing.JMenu();
+        meOsszeadas = new javax.swing.JMenuItem();
+        meKivonas = new javax.swing.JMenuItem();
+        meSzorzas = new javax.swing.JMenuItem();
+        meOsztas = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Alap Müvelet gyakorlas");
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        pnTerulet.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
 
         lbFeladat.setText("A feladat");
 
@@ -72,43 +78,43 @@ public class Ablak extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+        javax.swing.GroupLayout pnTeruletLayout = new javax.swing.GroupLayout(pnTerulet);
+        pnTerulet.setLayout(pnTeruletLayout);
+        pnTeruletLayout.setHorizontalGroup(
+            pnTeruletLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnTeruletLayout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(lbProbalkozas, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(112, 112, 112))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(jPanel1Layout.createSequentialGroup()
+            .addGroup(pnTeruletLayout.createSequentialGroup()
+                .addGroup(pnTeruletLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(pnTeruletLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(pnTeruletLayout.createSequentialGroup()
                             .addGap(66, 66, 66)
                             .addComponent(btSzamol, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btUjFeladat, javax.swing.GroupLayout.PREFERRED_SIZE, 98, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(pnTeruletLayout.createSequentialGroup()
                             .addGap(39, 39, 39)
                             .addComponent(lbFeladat, javax.swing.GroupLayout.PREFERRED_SIZE, 157, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGap(53, 53, 53)
                             .addComponent(txtTip, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(pnTeruletLayout.createSequentialGroup()
                         .addGap(121, 121, 121)
                         .addComponent(dbKerdes, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(38, Short.MAX_VALUE))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
+        pnTeruletLayout.setVerticalGroup(
+            pnTeruletLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(pnTeruletLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(dbKerdes, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnTeruletLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(lbFeladat, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtTip, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(pnTeruletLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btSzamol, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btUjFeladat, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
@@ -124,36 +130,54 @@ public class Ablak extends javax.swing.JFrame {
         rbRossz.setText("Rossz megoldás");
         rbRossz.setEnabled(false);
 
+        lbUzenet.setFont(new java.awt.Font("Times New Roman", 0, 13)); // NOI18N
+        lbUzenet.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+
+        pnStat.setBorder(javax.swing.BorderFactory.createTitledBorder("Statisztika"));
+        pnStat.setToolTipText("Statisztika: Összeadás: 0 Kivonás: 0 Szorzás: 0 Osztás: 0  Átlagosan: 100%");
+
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
-        jTextArea1.setRows(5);
-        jTextArea1.setText("Statisztika:\nÖsszeadás: 0\nKivonás: 0\nSzorzás: 0\nOsztás: 0\n\nÁtlagosan: 100%");
-        jScrollPane1.setViewportView(jTextArea1);
+        statTextArea.setColumns(20);
+        statTextArea.setFont(new java.awt.Font("Times New Roman", 0, 12)); // NOI18N
+        statTextArea.setRows(5);
+        statTextArea.setText("Statisztika:\nÖsszeadás: 0\nKivonás: 0\nSzorzás: 0\nOsztás: 0\n\nÁtlagosan: 100%");
+        statTextArea.setEnabled(false);
+        jScrollPane1.setViewportView(statTextArea);
 
-        jMenu1.setText("Müveletek");
+        javax.swing.GroupLayout pnStatLayout = new javax.swing.GroupLayout(pnStat);
+        pnStat.setLayout(pnStatLayout);
+        pnStatLayout.setHorizontalGroup(
+            pnStatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 139, Short.MAX_VALUE)
+        );
+        pnStatLayout.setVerticalGroup(
+            pnStatLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 182, Short.MAX_VALUE)
+        );
 
-        jMenuItem1.setText("Összeadás");
-        jMenu1.add(jMenuItem1);
+        meMuvelet.setText("Müveletek");
 
-        jMenuItem2.setText("Kivonás");
-        jMenu1.add(jMenuItem2);
+        meOsszeadas.setText("Összeadás");
+        meMuvelet.add(meOsszeadas);
 
-        jMenuItem3.setText("Szorzás");
-        jMenu1.add(jMenuItem3);
+        meKivonas.setText("Kivonás");
+        meMuvelet.add(meKivonas);
 
-        jMenuItem4.setText("Osztás");
-        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+        meSzorzas.setText("Szorzás");
+        meMuvelet.add(meSzorzas);
+
+        meOsztas.setText("Osztás");
+        meOsztas.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem4ActionPerformed(evt);
+                meOsztasActionPerformed(evt);
             }
         });
-        jMenu1.add(jMenuItem4);
+        meMuvelet.add(meOsztas);
 
-        jMenuBar1.add(jMenu1);
+        meBar.add(meMuvelet);
 
-        setJMenuBar(jMenuBar1);
+        setJMenuBar(meBar);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -163,109 +187,171 @@ public class Ablak extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
-                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(pnTerulet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(pnStat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
+                        .addGap(43, 43, 43)
                         .addComponent(rbHejes)
-                        .addGap(88, 88, 88)
-                        .addComponent(rbRossz)))
-                .addContainerGap(25, Short.MAX_VALUE))
+                        .addGap(77, 77, 77)
+                        .addComponent(rbRossz)
+                        .addGap(61, 61, 61)
+                        .addComponent(lbUzenet, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(rbHejes)
-                    .addComponent(rbRossz))
-                .addGap(45, 45, 45))
+                    .addComponent(pnTerulet, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(pnStat, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(lbUzenet, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(rbHejes)
+                            .addComponent(rbRossz))))
+                .addGap(26, 26, 26))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
-        lbFeladat.setText("10/2=");
-    }//GEN-LAST:event_jMenuItem4ActionPerformed
+    private int szamgeneral() {
+        return (int) (Math.random() * 100);
+    }
+
+    private void UjOsztasFeladat() {
+        boolean jo = false;
+        int oszto, hanyados;
+        do {
+            oszto = szamgeneral();
+            hanyados = szamgeneral();
+            jo = oszto > 0 && hanyados > oszto;
+        } while (!jo);
+        helyesEredmeny = (int) hanyados / oszto;
+        lbFeladat.setText(hanyados + "/" + oszto + "=");
+    }
+
+    private void UjOszeadas() {
+        int szam1 = szamgeneral();
+        int szam2 = szamgeneral();
+        helyesEredmeny = szam1 + szam2;
+        lbFeladat.setText(szam1 + "+" + szam2 + "=");
+    }
+
+    private void UjKivonas() {
+        int szam1 = szamgeneral();
+        int szam2 = szamgeneral();
+        helyesEredmeny = szam1 + szam2;
+        lbFeladat.setText(szam1 + "+" + szam2 + "=");
+    }
+
+    private void UjSzorzas() {
+        int szam1 = szamgeneral();
+        int szam2 = szamgeneral();
+        helyesEredmeny = szam1 * szam2;
+        lbFeladat.setText(szam1 + "*" + szam2 + "=");
+    }
+
+    private void Proba() {
+        probadb++;
+        lbProbalkozas.setText("Eddig próbálkozott: " + probadb);
+    }
+
+    private void meOsztasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_meOsztasActionPerformed
+        UjOsztasFeladat();
+    }//GEN-LAST:event_meOsztasActionPerformed
 
     private void btSzamolActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btSzamolActionPerformed
-        int tipp = 0;
-        if (txtTip.getText().length() > 0) {
-            tipp = Integer.parseInt(txtTip.getText());
-        }
-        switch (tipp) {
-            case 5:
+        if (!lbFeladat.getText().equals("A feladat")) {
+            double tipp = 0;
+            if (txtTip.getText().length() > 0) {
+                tipp = Double.parseDouble(txtTip.getText());
+            }
+            if ((int) tipp == helyesEredmeny) {
                 rbHejes.setSelected(true);
-                break;
-            default:
+
+            } else {
                 rbRossz.setSelected(true);
+                Proba();
+            }
+        } else {
+            lbUzenet.setText("Nincs feladat");
         }
     }//GEN-LAST:event_btSzamolActionPerformed
 
     private void btUjFeladatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btUjFeladatActionPerformed
         HelyesseBT.clearSelection();
         txtTip.setText("");
+        lbUzenet.setText("");
+        if (lbFeladat.getText().contains("/")) {
+            UjOsztasFeladat();
+        }
     }//GEN-LAST:event_btUjFeladatActionPerformed
 
     /**
      * @param args the command line arguments
      */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(Ablak.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(Ablak.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(Ablak.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(Ablak.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(new Runnable() {
-//            public void run() {
-//                new Ablak().setVisible(true);
-//            }
-//        });
-//    }
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(Ablak.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(Ablak.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(Ablak.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(Ablak.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Ablak().setVisible(true);
+            }
+        });
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup HelyesseBT;
     private javax.swing.JButton btSzamol;
     private javax.swing.JButton btUjFeladat;
     private javax.swing.JLabel dbKerdes;
-    private javax.swing.JMenu jMenu1;
-    private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
-    private javax.swing.JMenuItem jMenuItem2;
-    private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private javax.swing.JLabel lbFeladat;
     private javax.swing.JLabel lbProbalkozas;
+    private javax.swing.JLabel lbUzenet;
+    private javax.swing.JMenuBar meBar;
+    private javax.swing.JMenuItem meKivonas;
+    private javax.swing.JMenu meMuvelet;
+    private javax.swing.JMenuItem meOsszeadas;
+    private javax.swing.JMenuItem meOsztas;
+    private javax.swing.JMenuItem meSzorzas;
+    private javax.swing.JPanel pnStat;
+    private javax.swing.JPanel pnTerulet;
     private javax.swing.JRadioButton rbHejes;
     private javax.swing.JRadioButton rbRossz;
+    private javax.swing.JTextArea statTextArea;
     private javax.swing.JTextField txtTip;
     // End of variables declaration//GEN-END:variables
+
 }
